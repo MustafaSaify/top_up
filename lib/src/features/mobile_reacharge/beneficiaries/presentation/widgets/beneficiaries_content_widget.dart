@@ -4,8 +4,9 @@ import 'beneficiary_card.dart';
 
 class BeneficiariesContentWidget extends StatelessWidget {
   final List<Beneficiary> beneficiaries;
+  final Function(String beneficiaryId) onRechargePressed;
 
-  const BeneficiariesContentWidget({super.key, required this.beneficiaries});
+  const BeneficiariesContentWidget({super.key, required this.beneficiaries, required this.onRechargePressed});
 
   @override
   Widget build(Object context) {
@@ -14,7 +15,7 @@ class BeneficiariesContentWidget extends StatelessWidget {
       itemCount: beneficiaries.length,
       itemBuilder: (context, index) {
         final beneficiary = beneficiaries[index];
-        return BeneficiaryCard(beneficiary: beneficiary);
+        return BeneficiaryCard(beneficiary: beneficiary, onRechargePressed: onRechargePressed);
       },
     );
   }

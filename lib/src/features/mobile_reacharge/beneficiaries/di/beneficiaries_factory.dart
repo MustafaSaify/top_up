@@ -1,5 +1,6 @@
-import 'package:top_up/src/features/mobile_reacharge/beneficiaries/data/datasource/beneficiaries_remote_datasource.dart';
-import 'package:top_up/src/features/mobile_reacharge/beneficiaries/data/datasource/beneficiaries_remote_datasource_impl.dart';
+import 'package:dio/dio.dart';
+import 'package:top_up/src/features/mobile_reacharge/beneficiaries/data/datasource/remote/beneficiaries_remote_datasource.dart';
+import 'package:top_up/src/features/mobile_reacharge/beneficiaries/data/datasource/remote/service/beneficiaries_service.dart';
 import 'package:top_up/src/features/mobile_reacharge/beneficiaries/data/repository/beneficiaries_repository_impl.dart';
 import 'package:top_up/src/features/mobile_reacharge/beneficiaries/domain/repository/beneficiaries_repository.dart';
 import 'package:top_up/src/features/mobile_reacharge/beneficiaries/presentation/bloc/beneficiaries_bloc.dart';
@@ -12,19 +13,14 @@ class BeneficiariesFeature {
   }
 
   BeneficiariesRepository _getBeneficiariesRepository() {
-    return BeneficiariesRepositoryImpl(
-        remoteDatasource: _getBeneficiariesRemoteDatasource());
+    return BeneficiariesRepositoryImpl(remoteDatasource: _getBeneficiariesRemoteDatasource());
   }
 
   BeneficiariesRemoteDataSource _getBeneficiariesRemoteDatasource() {
-    return BeneficiariesRemoteDataSourceImpl();
+    return BeneficiariesRemoteDataSourceImpl(service: _getBeneficiariesService());
   }
 
-  // EventsService _getEventsService() {
-  //   return EventsService(
-  //     Dio(
-  //       BaseOptions(contentType: "application/json")
-  //     )
-  //   );
-  // }
+  BeneficiariesService _getBeneficiariesService() {
+    return BeneficiariesService(Dio(BaseOptions(contentType: "application/json")));
+  }
 }

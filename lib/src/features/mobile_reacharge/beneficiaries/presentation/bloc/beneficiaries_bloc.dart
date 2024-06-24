@@ -6,8 +6,7 @@ import 'package:top_up/src/features/mobile_reacharge/beneficiaries/presentation/
 class BeneficiariesBloc extends Bloc<BeneficiariesEvent, BeneficiariesState> {
   BeneficiariesRepository beneficiariesRepository;
 
-  BeneficiariesBloc({required this.beneficiariesRepository})
-      : super(InitialState()) {
+  BeneficiariesBloc({required this.beneficiariesRepository}) : super(InitialState()) {
     on<LoadBeneficiariesEvent>(_handleLoadBeneficiariesEvent);
   }
 

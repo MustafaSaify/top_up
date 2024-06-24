@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:top_up/src/routing/routes.dart';
 import 'package:top_up/src/routing/router.dart' as app_router;
+import 'package:top_up/src/theme/global_theme_data.dart';
 
 void main() {
   runApp(const TopUpApp());
@@ -14,10 +15,9 @@ class TopUpApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialRoute: home,
+      themeMode: ThemeMode.light, //or ThemeMode.dark
+      theme: GlobalThemData.appThemeData,
+      initialRoute: mobileRechargeHome,
       onGenerateRoute: app_router.Router.generateRoute,
     );
   }
