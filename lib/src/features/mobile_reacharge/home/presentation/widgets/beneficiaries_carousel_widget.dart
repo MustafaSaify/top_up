@@ -9,7 +9,13 @@ class BeneficiariesCarouselWidget extends StatelessWidget {
   const BeneficiariesCarouselWidget({super.key, required this.beneficiaries, required this.onRechargePressed});
 
   @override
-  Widget build(Object context) {
+  Widget build(BuildContext context) {
+    // Calculate the card width
+    const double cardWidthFactor = 0.4;
+    const double carouselHeight = 150;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double cardWidth = screenWidth * cardWidthFactor;
+     // This would make sure the 3rd card is partially (20%) visible.
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -17,13 +23,16 @@ class BeneficiariesCarouselWidget extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20), textAlign: TextAlign.left
         ),
         SizedBox(
-          height: 150,
+          height: carouselHeight,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: beneficiaries.length,
             itemBuilder: (context, index) {
               final beneficiary = beneficiaries[index];
-              return BeneficiaryCard(beneficiary: beneficiary, onRechargePressed: onRechargePressed);
+              return SizedBox(
+                width: cardWidth,
+                child: BeneficiaryCard(beneficiary: beneficiary, onRechargePressed: onRechargePressed)
+              );
             },
           ),
         ),
