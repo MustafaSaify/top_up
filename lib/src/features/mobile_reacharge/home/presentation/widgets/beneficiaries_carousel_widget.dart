@@ -11,11 +11,12 @@ class BeneficiariesCarouselWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Calculate the card width
+    // This is to make the 3rd card partially (20%) visible.
     const double cardWidthFactor = 0.4;
     const double carouselHeight = 150;
     double screenWidth = MediaQuery.of(context).size.width;
     double cardWidth = screenWidth * cardWidthFactor;
-     // This would make sure the 3rd card is partially (20%) visible.
+     
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
