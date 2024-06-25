@@ -11,6 +11,7 @@ Welcome to the Top-Up App! This Flutter application is designed to manage top-up
 - [Getting Started](#getting-started)
 - [Running the App](#running-the-app)
 - [Contributing](#contributing)
+- [Demo](#demo)
 
 ## Screens and Features
 
@@ -124,4 +125,6 @@ Contributions are welcome! Please follow these steps:
 
 6. Open a pull request.
 
+## Demo
+![](demo/app-demo.gif)
 
