@@ -27,11 +27,13 @@ class TopUpSummaryBloc extends Bloc<TopUpSummaryEvent, TopUpSummaryState> {
     CompleteTopUpEvent event,
     Emitter<TopUpSummaryState> emit,
   ) async {
+    emit(CompletingTopUpState());
     try {
       await completeTopUpUsecase(event.transactionId);
       emit(TopUpSuccessState());
     }
     catch(e) {
+      // Observe error here.
       emit(const TopUpFailedState(message: 'Something went wrong, please try again later.'));
     }
   }

@@ -21,6 +21,11 @@ class LoadedState extends TopUpSummaryState {
   List<Object?> get props => [summaryItems];
 }
 
+class CompletingTopUpState extends TopUpSummaryState {
+  @override
+  List<Object?> get props => [];
+}
+
 class TopUpSuccessState extends TopUpSummaryState {
   @override
   List<Object?> get props => [];

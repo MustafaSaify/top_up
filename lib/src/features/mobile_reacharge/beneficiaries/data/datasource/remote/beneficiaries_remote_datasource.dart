@@ -14,12 +14,7 @@ class BeneficiariesRemoteDataSourceImpl extends BeneficiariesRemoteDataSource {
 
   @override
   Future<List<Beneficiary>> getBeneficiaries() async {
-    //return service.getBeneficiaries();
-    return [
-      const Beneficiary(
-          id: "6a187b88-7f26-404d-8e65-f288c8769b17", name: "Amit Pahandit", phoneNumber: "+915255219205"),
-      const Beneficiary(id: "400816f5-a528-417a-bf3b-08b19ae3f9e7", name: "Kumar Suresh", phoneNumber: "+971562194020"),
-    ];
+    return service.getBeneficiaries();
   }
 
   @override

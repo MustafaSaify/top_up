@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:top_up/src/features/mobile_reacharge/beneficiaries/di/beneficiaries_factory.dart';
-import 'package:top_up/src/features/mobile_reacharge/beneficiaries/presentation/bloc/beneficiaries_bloc.dart';
+import 'package:top_up/src/features/mobile_reacharge/home/di/mobile_rechange_home_factory.dart';
+import 'package:top_up/src/features/mobile_reacharge/home/presentation/bloc/mobile_recharge_home_bloc.dart';
 import 'package:top_up/src/features/mobile_reacharge/home/presentation/screen/mobile_recharge_home.dart';
+import 'package:top_up/src/features/mobile_reacharge/success/presentation/topup_success_screen.dart';
 import 'package:top_up/src/features/mobile_reacharge/summary/di/topup_summary_factory.dart';
 import 'package:top_up/src/features/mobile_reacharge/summary/domain/entity/topup_summary.dart';
 import 'package:top_up/src/features/mobile_reacharge/summary/presentation/bloc/topup_summary_bloc.dart';
@@ -17,8 +18,8 @@ class Router {
     switch (settings.name) {
       case mobileRechargeHome:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider<BeneficiariesBloc>(
-                  create: (BuildContext context) => BeneficiariesFeature().initBeneficiariesBloc(),
+            builder: (_) => BlocProvider<MobileRechargeHomeBloc>(
+                  create: (BuildContext context) => MobileRechargeHomeFeature().initMobileRechargeHomeBloc(),
                   child: const MobileRechargeHomeScreen(),
                 ));
 
@@ -39,6 +40,11 @@ class Router {
                   create: (BuildContext context) => TopUpSummaryFeature().initTopUpSummaryBloc(),
                   child: TopUpSummaryScreen(summary: topUpSummary!),
                 ));
+      
+      case topUpSuccess:
+        return MaterialPageRoute(
+          builder: (_) => const TopUpSuccessScreen()
+        );
 
       default:
         return MaterialPageRoute(

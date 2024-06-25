@@ -3,12 +3,12 @@ import 'package:top_up/src/features/mobile_reacharge/beneficiaries/data/datasour
 import 'package:top_up/src/features/mobile_reacharge/beneficiaries/data/datasource/remote/service/beneficiaries_service.dart';
 import 'package:top_up/src/features/mobile_reacharge/beneficiaries/data/repository/beneficiaries_repository_impl.dart';
 import 'package:top_up/src/features/mobile_reacharge/beneficiaries/domain/repository/beneficiaries_repository.dart';
-import 'package:top_up/src/features/mobile_reacharge/beneficiaries/presentation/bloc/beneficiaries_bloc.dart';
+import 'package:top_up/src/features/mobile_reacharge/home/presentation/bloc/mobile_recharge_home_bloc.dart';
 
-class BeneficiariesFeature {
-  BeneficiariesBloc initBeneficiariesBloc() {
-    return BeneficiariesBloc(
-      beneficiariesRepository: _getBeneficiariesRepository(),
+class MobileRechargeHomeFeature {
+  MobileRechargeHomeBloc initMobileRechargeHomeBloc() {
+    return MobileRechargeHomeBloc(
+      _getBeneficiariesRepository()
     );
   }
 
