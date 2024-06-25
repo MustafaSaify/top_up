@@ -129,6 +129,8 @@ Contributions are welcome! Please follow these steps:
 ## Pending/In-Progress
 1. Add beneficiary Screen. (InProgress)
 2. Widget Tests. (InProgress)
+3. Custom amount input on TopUp screen.
+4. As of now the app do calculate the max amount a user can topup based on their wallet balance, monthly limit and verificatin status and disables the ineligible topup options but the user needs to be informed about such limits and why certain the topup options are diabled.
 3. Better error handling.
 
 ## Demo
