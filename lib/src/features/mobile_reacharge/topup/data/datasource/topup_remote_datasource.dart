@@ -6,7 +6,7 @@ abstract class TopUpRemoteDataSource {
   Future<List<TopUpOption>> getTopUpOptions();
   Future<TopUpConfig> getTopUpConfig();
   Future<TopUpSummary> initiateTopUp(String beneficairyId, num amount);
-  Future<void> completeTopUp(String transactionId);
+  Future<void> completeTopUpTransaction(String transactionId);
 }
 
 class TopupRemoteDataSourceImpl extends TopUpRemoteDataSource {
@@ -33,26 +33,24 @@ class TopupRemoteDataSourceImpl extends TopUpRemoteDataSource {
         verifiedUserLimit: 1000,
         unverifiedUserLimit: 500,
         totalLimit: 3000,
-        currencyCode: 'AED'
-      );
+        currencyCode: 'AED');
   }
 
   @override
   Future<TopUpSummary> initiateTopUp(String beneficairyId, num amount) async {
     // Mocked response.
     return TopUpSummary(
-      transactionId: '2a011e5d-18f7-4410-86a6',
-      beneficiaryName: 'Amit Pahandit',
-      beneficiaryPhoneNumber: '+9715255219205', 
-      topUpAmount: amount, 
-      serviceCharge: 1,
-      totalAmount: amount + 1,
-      currencyCode: 'AED'
-    );
+        transactionId: '2a011e5d-18f7-4410-86a6',
+        beneficiaryName: 'Amit Pahandit',
+        beneficiaryPhoneNumber: '+9715255219205',
+        topUpAmount: amount,
+        serviceCharge: 1,
+        totalAmount: amount + 1,
+        currencyCode: 'AED');
   }
 
   @override
-  Future<void> completeTopUp(String transactionId) async {
+  Future<void> completeTopUpTransaction(String transactionId) async {
     // Mocked response.
     return;
   }

@@ -6,5 +6,5 @@ abstract class TopUpRepository {
   Future<List<TopUpOption>> getTopUpOptions();
   Future<TopUpConfig> getTopUpConfig();
   Future<TopUpSummary> initiateTopUp(String beneficairyId, num amount);
-  Future<void> completeTopUp(String transactionId);
+  Future<void> completeTopUpTransaction(String transactionId);
 }

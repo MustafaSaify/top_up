@@ -7,10 +7,11 @@ abstract class CompleteTopUpUsecase {
 class CompleteTopupUsecaseImpl extends CompleteTopUpUsecase {
   final TopUpRepository _topUpRepository;
 
-  CompleteTopupUsecaseImpl({required TopUpRepository topUpRepository}) : _topUpRepository = topUpRepository;
-  
+  CompleteTopupUsecaseImpl({required TopUpRepository topUpRepository})
+      : _topUpRepository = topUpRepository;
+
   @override
   Future<void> call(String transactionId) {
-   return _topUpRepository.completeTopUp(transactionId);
+    return _topUpRepository.completeTopUpTransaction(transactionId);
   }
 }

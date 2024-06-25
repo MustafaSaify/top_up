@@ -25,7 +25,7 @@ class TopUpRepositoryImpl extends TopUpRepository {
   }
 
   @override
-  Future<void> completeTopUp(String transactionId) {
-    return remoteDataSource.completeTopUp(transactionId);
+  Future<void> completeTopUpTransaction(String transactionId) {
+    return remoteDataSource.completeTopUpTransaction(transactionId);
   }
 }
